@@ -1,8 +1,0 @@
-<p>assignement-third works!</p>
-
-<button class="btn btn-danger" (click)="onClick()">Display details</button>
-<p *ngIf="isDisplayed">Secret password = tuna</p>
-<p *ngFor="let n of logs" [ngStyle]="{backgroundColor: addColour(n)}" [ngClass]="{log: n.number >= 5}">
-  Number: {{n.number}}
-  time: {{n.time}}
-</p>
