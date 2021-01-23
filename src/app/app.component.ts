@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +6,9 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  loadedFeature = 'recipe';
 
-  itemFlag: string = 'recipes';
-
-  setItemFlag(itemValue): void {
-    this.itemFlag = itemValue;
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
   }
-
 }
