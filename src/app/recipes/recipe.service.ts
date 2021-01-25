@@ -12,11 +12,11 @@ export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
-    new Recipe('A Test Recipe',
+    new Recipe(1, 'A Test Recipe',
       'This is simply a test',
       'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg',
       [new Ingredient('ingredient1', 1), new Ingredient('ingredient2', 30)]),
-    new Recipe('Another Test Recipe',
+    new Recipe(2, 'Another Test Recipe',
       'This is simply a test',
       'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg',
       [new Ingredient('ingredient44', 99), new Ingredient('ingredient23', 32)]),
@@ -26,6 +26,10 @@ export class RecipeService {
   // slice is to get a copy of the array not the reference to the array
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  getRecipe(id: number) {
+    return this.recipes.find((recipe) => recipe.id === id);
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
