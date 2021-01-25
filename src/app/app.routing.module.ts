@@ -3,12 +3,16 @@ import {RouterModule, Routes} from '@angular/router';
 import {ShoppingListComponent} from './shopping-list/shopping-list.component';
 import {RecipesComponent} from './recipes/recipes.component';
 import {RecipeDetailComponent} from './recipes/recipe-detail/recipe-detail.component';
+import {PlaceholderComponent} from './placeholder/placeholder.component';
 
 
 const appRoutes: Routes = [
   {path: 'shopping-list', component: ShoppingListComponent},
   {path: 'recipes', component: RecipesComponent, children: [
-    {path: ':id', component: RecipeDetailComponent}]},
+      {path: '', component: PlaceholderComponent},
+    {path: ':id', component: RecipeDetailComponent}
+
+    ]},
   // it must have a pathMatch as all path has empty prefix
   {path: '', redirectTo: '/recipes', pathMatch: 'full'}
 ];
