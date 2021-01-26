@@ -5,7 +5,7 @@ import {Subject} from 'rxjs';
 export class ShoppingListService implements OnInit {
 
   ingredientsChanged = new Subject<Ingredient[]>();
-
+  ingredientOnEdit = new Subject<number>();
 
   private ingredients: Ingredient[] = [
     new Ingredient('Apples', 5),
@@ -25,6 +25,22 @@ export class ShoppingListService implements OnInit {
     this.ingredients.push(...ingredients);
     this.ingredientsChanged.next(this.ingredients.slice());
   }
+
+  getIngredient(id: number) {
+    return this.ingredients[id];
+  }
+
+  updateIngredient(id: number, ingredient: Ingredient) {
+    this.ingredients[id] = ingredient;
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
+
+  deleteIngredient(id: number) {
+    this.ingredients.splice(id, 1);
+    this.ingredientsChanged.next(this.ingredients.slice());
+
+  }
+
 
   ngOnInit(): void {
   }

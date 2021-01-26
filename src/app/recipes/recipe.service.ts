@@ -21,7 +21,7 @@ export class RecipeService {
   ];
 
 
-  // slice is to get a copy of the array not the reference to the array
+  // slice is to ng serveget a copy of the array not the reference to the array
   getRecipes() {
     return this.recipes.slice();
   }
